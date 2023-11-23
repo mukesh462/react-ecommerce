@@ -1,0 +1,57 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* .ant-radio-checked .ant-radio-inner{
+    border-color: rgb(79, 70, 229) !important ;
+    
+  }
+  
+  .ant-radio-checked .ant-radio-inner:after{
+    background-color: rgb(79, 70, 229);
+  }
+  
+  .ant-radio:hover .ant-radio-inner {
+    border-color: rgb(79, 70, 229) ;
+  }
+  .ant-radio-checked .ant-radio-inner:focus{
+    border-color: rgb(79, 70, 229) ;
+  } */
+
+  .radio-custom .ant-radio-wrapper {
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    padding: 8px;
+  }
+  
+  .radio-custom .ant-radio-wrapper-checked {
+    border: 2px solid blue;
+    border-radius: 8px;
+    padding: 8px;
+  }
+  
+  .radio-custom .ant-radio {
+    position: absolute;
+    left: -9999px;
+    overflow: hidden;
+  }
+  
+  .radio-custom .ant-radio + * {
+    display: block;
+    padding: 0;
+    overflow: hidden;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+
+  @layer utilities {
+    /* Chrome, Safari and Opera */
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+
+    .no-scrollbar {
+      -ms-overflow-style: none; /* IE and Edge */
+      scrollbar-width: none; /* Firefox */
+    }
+}

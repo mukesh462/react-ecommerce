@@ -1,0 +1,42 @@
+/* Your styles.css or styles.scss */
+.swiper-pagination-thumb {
+    width: 10px; /* Adjust the width of the pagination thumbs */
+    height: 10px; /* Adjust the height of the pagination thumbs */
+    background-color: rgb(79 70 229); /* Adjust the background color of inactive thumbs */
+    margin: 0 5px; /* Adjust the margin between thumbs */
+
+  }
+  
+  .swiper-pagination-thumb-active {
+    background-color: rgb(79 70 229); /* Adjust the background color of the active thumb */
+  }
+  .my-checkbox > .ant-checkbox-checked .ant-checkbox-inner {
+    background-color: red;
+    border-color: red;
+}
+.my-checkbox > .ant-checkbox-checked .ant-checkbox-inner {
+  background-color: rgb(79 70 229) !important;
+  border-color: rgb(79 70 229);
+}
+.ant-checkbox-wrapper:hover .ant-checkbox-checked .ant-checkbox-inner {
+  background-color: rgb(79 70 229) !important;
+  border-color: rgb(79 70 229) !important;
+}
+.ant-checkbox-checked:hover .ant-checkbox-checked .ant-checkbox-inner {
+  background-color: rgb(79 70 229) !important;
+  border-color: rgb(79 70 229) !important;
+}
+.ant-checkbox-checked:after {
+  border-color: rgb(79 70 229) !important;
+}
+.ant-checkbox:hover::after {
+  border-color: rgb(79 70 229) !important;
+}
+.ant-checkbox:hover .ant-checkbox-inner {
+  border-color: rgb(79 70 229) !important;
+}
+
+
+.ant-checkbox-inner {
+  background-color: #e3f0f5 !important;
+}
