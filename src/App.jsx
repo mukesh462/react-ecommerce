@@ -18,24 +18,34 @@ import ProductView from "./components/ProductView";
 import Auth from "./components/Auth";
 import FilterPage from "./components/FilterPage";
 import CheckOut from "./components/CheckOut";
+import AppMenu from "./components/AppMenu";
+import MyProfile from "./components/MyProfile";
+import Orders from "./components/Orders";
 
 const Root = () => {
   const location = useLocation();
   console.log(location);
 
   return (
-    <>
+    <div className="app-main">
      <Navbar />
-      <Routes>
+     <div className="content">
+
+
+        <Routes >
         <Route exact path="/" element={<HomePage />} />
         <Route exact path="/view" element={<ProductView />} />
-        <Route exact path="/auth" element={<Auth />} /> 
+        <Route exact path="/myProfile" element={<MyProfile />} /> 
           <Route exact path="/filterPage" element={<FilterPage />} />
           <Route exact path="/checkout" element={<CheckOut />} />
+          <Route exact path="/myOrders" element={<Orders />} />
+
 
       </Routes>
+     </div>
+    
       <Footer />
-    </>
+    </div>
   );
 };
 function App() {

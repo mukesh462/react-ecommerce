@@ -1,143 +1,102 @@
-
-import { Fragment, useState } from 'react'
-import { Dialog, Popover, Tab, Transition } from '@headlessui/react'
-import { Bars3Icon, MagnifyingGlassIcon, ShoppingBagIcon, XMarkIcon } from '@heroicons/react/24/outline'
-import { Colors } from '../Config'
-import { Link, useNavigate } from 'react-router-dom'
-
-const testD = {
-  categories: [
-    {
-      id: 'women',
-      name: 'Women',
-      featured: [
-        {
-          name: 'New Arrivals',
-          href: '#',
-          imageSrc: 'https://tailwindui.com/img/ecommerce-images/mega-menu-category-01.jpg',
-          imageAlt: 'Models sitting back to back, wearing Basic Tee in black and bone.',
-        },
-        {
-          name: 'Basic Tees',
-          href: '#',
-          imageSrc: 'https://tailwindui.com/img/ecommerce-images/mega-menu-category-02.jpg',
-          imageAlt: 'Close up of Basic Tee fall bundle with off-white, ochre, olive, and black tees.',
-        },
-      ],
-      sections: [
-        {
-          id: 'clothing',
-          name: 'Clothing',
-          items: [
-            { name: 'Tops', href: '#' },
-            { name: 'Dresses', href: '#' },
-            { name: 'Pants', href: '#' },
-            { name: 'Denim', href: '#' },
-            { name: 'Sweaters', href: '#' },
-            { name: 'T-Shirts', href: '#' },
-            { name: 'Jackets', href: '#' },
-            { name: 'Activewear', href: '#' },
-            { name: 'Browse All', href: '#' },
-          ],
-        },
-        {
-          id: 'accessories',
-          name: 'Accessories',
-          items: [
-            { name: 'Watches', href: '#' },
-            { name: 'Wallets', href: '#' },
-            { name: 'Bags', href: '#' },
-            { name: 'Sunglasses', href: '#' },
-            { name: 'Hats', href: '#' },
-            { name: 'Belts', href: '#' },
-          ],
-        },
-        {
-          id: 'brands',
-          name: 'Brands',
-          items: [
-            { name: 'Full Nelson', href: '#' },
-            { name: 'My Way', href: '#' },
-            { name: 'Re-Arranged', href: '#' },
-            { name: 'Counterfeit', href: '#' },
-            { name: 'Significant Other', href: '#' },
-          ],
-        },
-      ],
-    },
-    {
-      id: 'men',
-      name: 'Men',
-      featured: [
-        {
-          name: 'New Arrivals',
-          href: '#',
-          imageSrc: 'https://tailwindui.com/img/ecommerce-images/product-page-04-detail-product-shot-01.jpg',
-          imageAlt: 'Drawstring top with elastic loop closure and textured interior padding.',
-        },
-        {
-          name: 'Artwork Tees',
-          href: '#',
-          imageSrc: 'https://tailwindui.com/img/ecommerce-images/category-page-02-image-card-06.jpg',
-          imageAlt:
-            'Three shirts in gray, white, and blue arranged on table with same line drawing of hands and shapes overlapping on front of shirt.',
-        },
-      ],
-      sections: [
-        {
-          id: 'clothing',
-          name: 'Clothing',
-          items: [
-            { name: 'Tops', href: '#' },
-            { name: 'Pants', href: '#' },
-            { name: 'Sweaters', href: '#' },
-            { name: 'T-Shirts', href: '#' },
-            { name: 'Jackets', href: '#' },
-            { name: 'Activewear', href: '#' },
-            { name: 'Browse All', href: '#' },
-          ],
-        },
-        {
-          id: 'accessories',
-          name: 'Accessories',
-          items: [
-            { name: 'Watches', href: '#' },
-            { name: 'Wallets', href: '#' },
-            { name: 'Bags', href: '#' },
-            { name: 'Sunglasses', href: '#' },
-            { name: 'Hats', href: '#' },
-            { name: 'Belts', href: '#' },
-          ],
-        },
-        {
-          id: 'brands',
-          name: 'Brands',
-          items: [
-            { name: 'Re-Arranged', href: '#' },
-            { name: 'Counterfeit', href: '#' },
-            { name: 'Full Nelson', href: '#' },
-            { name: 'My Way', href: '#' },
-          ],
-        },
-      ],
-    },
-  ],
-  pages: [
-    { name: 'Company', href: '#' },
-    { name: 'Stores', href: '#' },
-  ],
-}
+import { Fragment, useState } from "react";
+import { Dialog, Popover, Tab, Transition } from "@headlessui/react";
+import {
+  Bars3Icon,
+  MagnifyingGlassIcon,
+  ShoppingBagIcon,
+  XMarkIcon,
+  UserCircleIcon,
+} from "@heroicons/react/24/outline";
+import { Colors } from "../Config";
+import { Link, useNavigate } from "react-router-dom";
+import Auth from "./Auth";
+import { Dropdown } from "antd";
+import { RxPerson } from "react-icons/rx";
+import { LiaBoxSolid } from "react-icons/lia";
+import { SlLocationPin } from "react-icons/sl";
+import { TbLogout2 } from "react-icons/tb";
+import { CiGrid32 } from "react-icons/ci";
+import { SlLogin } from "react-icons/sl";
 
 function classNames(...classes) {
-  return classes.filter(Boolean).join(' ')
+  return classes.filter(Boolean).join(" ");
 }
 
 export default function Navbar() {
-  
-const navigate = useNavigate();
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
-  const [open, setOpen] = useState(false)
+  const showModal = () => {
+    setIsModalOpen(true);
+  };
+  const handleOk = () => {
+    setIsModalOpen(false);
+  };
+  const handleCancel = () => {
+    setIsModalOpen(false);
+  };
+  const navigate = useNavigate();
 
+  const [open, setOpen] = useState(false);
+  const items = [
+    {
+      key: "1",
+      label: (
+        <div onClick={()=> navigate('myProfile')} className="flex items-center w-40 justify-start hover:text-white text-base text-indigo-500 p-1 rounded-sm hover:bg-indigo-400">
+          <RxPerson className="mr-2 " />
+          Profile
+        </div>
+      ),
+    },
+    {
+      key: "2",
+      label: (
+        <div onClick={()=> navigate('myOrders')} className="flex items-center w-40 justify-start hover:text-white text-base text-indigo-500 p-1 rounded-sm hover:bg-indigo-400">
+          <LiaBoxSolid className="mr-2 " />
+          My Orders
+        </div>
+      ),
+    },
+    {
+      key: "3",
+      label: (
+        <div className="flex items-center w-40 justify-start hover:text-white text-base text-indigo-500 p-1 rounded-sm hover:bg-indigo-400">
+          <SlLocationPin className="mr-2 " />
+          Address
+        </div>
+      ),
+    },
+    {
+      key: "4",
+      label: (
+        <div className="flex items-center w-40 justify-start hover:text-white text-base text-indigo-500 p-1 rounded-sm hover:bg-indigo-400">
+          <TbLogout2 className="mr-2 " />
+          Logout
+        </div>
+      ),
+    },
+  ];
+  const sideBar = [
+    {
+      text: "My Profile",
+      select: 1,
+      icon: <RxPerson className="mr-2  " size={"24px"} />,
+    },
+    {
+      text: "My Orders",
+      select: 2,
+      icon: <LiaBoxSolid className="mr-2  " size={"28px"} />,
+    },
+    {
+      text: "Address",
+      select: 3,
+      icon: <SlLocationPin className="mr-2  " size={"28px"} />,
+    },
+    {
+      text: "Log Out",
+      select: 4,
+      icon: <TbLogout2 className="mr-2  " size={"28px"} />,
+    },
+  ];
   return (
     <div className="bg-white">
       {/* Mobile menu */}
@@ -177,103 +136,54 @@ const navigate = useNavigate();
                     <XMarkIcon className="h-6 w-6" aria-hidden="true" />
                   </button>
                 </div>
-
-                {/* Links */}
-                <Tab.Group as="div" className="mt-2">
-                  <div className="border-b border-gray-200">
-                    <Tab.List className="-mb-px flex space-x-8 px-4">
-                      {testD.categories.map((category) => (
-                        <Tab
-                          key={category.name}
-                          className={({ selected }) =>
-                            classNames(
-                              selected ? 'border-indigo-600 text-indigo-600' : 'border-transparent text-gray-900',
-                              'flex-1 whitespace-nowrap border-b-2 px-1 py-4 text-base font-medium'
-                            )
-                          }
-                        >
-                          {category.name}
-                        </Tab>
-                      ))}
-                    </Tab.List>
+                {/*not login  */}
+                {/* <div className="space-y-6 border-t border-gray-200 px-4 py-6">
+                 
+                  <div className="flow-root">
+                    <div
+                      href="#"
+                      className="-m-2 bg-indigo-500 text-white p-2 font-medium justify-center rounded-md flex items-center"
+                    >
+                      Login <SlLogin className="ml-2" />
+                    </div>
                   </div>
-                  <Tab.Panels as={Fragment}>
-                    {testD.categories.map((category) => (
-                      <Tab.Panel key={category.name} className="space-y-10 px-4 pb-8 pt-10">
-                        <div className="grid grid-cols-2 gap-x-4">
-                          {category.featured.map((item) => (
-                            <div key={item.name} className="group relative text-sm">
-                              <div className="aspect-h-1 aspect-w-1 overflow-hidden rounded-lg bg-gray-100 group-hover:opacity-75">
-                                <img src={item.imageSrc} alt={item.imageAlt} className="object-cover object-center" />
-                              </div>
-                              <a href={item.href} className="mt-6 block font-medium text-gray-900">
-                                <span className="absolute inset-0 z-10" aria-hidden="true" />
-                                {item.name}
-                              </a>
-                              <p aria-hidden="true" className="mt-1">
-                                Shop now
-                              </p>
-                            </div>
-                          ))}
-                        </div>
-                        {category.sections.map((section) => (
-                          <div key={section.name}>
-                            <p id={`${category.id}-${section.id}-heading-mobile`} className="font-medium text-gray-900">
-                              {section.name}
-                            </p>
-                            <ul
-                              role="list"
-                              aria-labelledby={`${category.id}-${section.id}-heading-mobile`}
-                              className="mt-6 flex flex-col space-y-6"
-                            >
-                              {section.items.map((item) => (
-                                <li key={item.name} className="flow-root">
-                                  <a href={item.href} className="-m-2 block p-2 text-gray-500">
-                                    {item.name}
-                                  </a>
-                                </li>
-                              ))}
-                            </ul>
-                          </div>
-                        ))}
-                      </Tab.Panel>
-                    ))}
-                  </Tab.Panels>
-                </Tab.Group>
+                </div> */}
 
-                <div className="space-y-6 border-t border-gray-200 px-4 py-6">
-                  {testD.pages.map((page) => (
-                    <div key={page.name} className="flow-root">
-                      <a href={page.href} className="-m-2 block p-2 font-medium text-gray-900">
-                        {page.name}
-                      </a>
+                <div className="space-y-6 border-t border-b border-gray-200 px-1 py-6">
+                  {sideBar.map((page) => (
+                    <div
+                      key={page.select}
+                      className="flow-root cursor-pointer hover:bg-indigo-500 hover:text-white px-3 rounded-lg p-1 text-indigo-400"
+                    >
+                      <div className="-m-2 items-center py-2 font-medium  flex ">
+                        {page.icon}
+                        <p className="mx-3"> {page.text}</p>
+                      </div>
                     </div>
                   ))}
                 </div>
+                <p className="font-medium text-lg py-3 pl-2 flex items-center ">
+                  {" "}
+                  <CiGrid32
+                    size={"28px"}
+                    className="mr-2 text-indigo-500 font-bold text-lg"
+                  />
+                  Category
+                </p>
 
                 <div className="space-y-6 border-t border-gray-200 px-4 py-6">
-                  <div className="flow-root">
-                    <a href="#" className="-m-2 block p-2 font-medium text-gray-900">
-                      Sign in
-                    </a>
-                  </div>
-                  <div className="flow-root">
-                    <a href="#" className="-m-2 block p-2 font-medium text-gray-900">
-                      Create account
-                    </a>
-                  </div>
-                </div>
-
-                <div className="border-t border-gray-200 px-4 py-6">
-                  <a href="#" className="-m-2 flex items-center p-2">
-                    <img
-                      src="https://tailwindui.com/img/flags/flag-canada.svg"
-                      alt=""
-                      className="block h-auto w-5 flex-shrink-0"
-                    />
-                    <span className="ml-3 block text-base font-medium text-gray-900">CAD</span>
-                    <span className="sr-only">, change currency</span>
-                  </a>
+                  {["Mukesh", "Nuwe", "Chani"].map((page) => (
+                    <div key={page} className="flow-root">
+                      <div className="-m-2 items-center p-2 font-medium hover:bg-indigo-500 rounded-lg hover:text-white flex  ">
+                        <img
+                          src="https://source.unsplash.com/random/200x200?sig=1"
+                          className="h-14 rounded-lg"
+                          alt=""
+                        />
+                        <p className="mx-3"> {page}</p>
+                      </div>
+                    </div>
+                  ))}
                 </div>
               </Dialog.Panel>
             </Transition.Child>
@@ -282,11 +192,20 @@ const navigate = useNavigate();
       </Transition.Root>
 
       <header className="relative bg-white">
-        <marquee style={{backgroundColor:Colors.main}} className="flex h-10 items-center justify-center bg-main-500 text-textcolor  px-4 text-sm font-medium text-white sm:px-6 lg:px-8">
-          Get free delivery on orders over $100 Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem, animi inventore, vero expedita quisquam cumque dolorem sint ab eaque illum cupiditate deleniti minima voluptatum illo sequi, commodi doloribus harum architecto.
+        <marquee
+          style={{ backgroundColor: Colors.main }}
+          className="flex h-10 items-center justify-center bg-main-500 text-textcolor  px-4 text-sm font-medium text-white sm:px-6 lg:px-8"
+        >
+          Get free delivery on orders over $100 Lorem ipsum dolor sit amet
+          consectetur adipisicing elit. Rem, animi inventore, vero expedita
+          quisquam cumque dolorem sint ab eaque illum cupiditate deleniti minima
+          voluptatum illo sequi, commodi doloribus harum architecto.
         </marquee>
 
-        <nav aria-label="Top" className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <nav
+          aria-label="Top"
+          className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8"
+        >
           <div className="border-b border-gray-200">
             <div className="flex h-16 items-center">
               <button
@@ -296,7 +215,10 @@ const navigate = useNavigate();
               >
                 <span className="absolute -inset-0.5" />
                 <span className="sr-only">Open menu</span>
-                <Bars3Icon className="h-6 w-6 text-main-500" aria-hidden="true" />
+                <Bars3Icon
+                  className="h-6 w-6 text-main-500"
+                  aria-hidden="true"
+                />
               </button>
 
               {/* Logo */}
@@ -307,47 +229,74 @@ const navigate = useNavigate();
                     className="h-8 w-auto max-h-8"
                     src="https://kidsstalk.in/assets/frontend/images/main-logo.webp"
                     alt=""
-                    onClick={() => navigate('/')}
+                    onClick={() => navigate("/")}
                   />
                 </a>
               </div>
 
               {/* Flyout menus */}
-             
 
               <div className="ml-auto flex items-center">
-                
-
                 {/* Search */}
                 <div className="flex lg:ml-6">
                   <a href="#" className="p-2 text-gray-400 hover:text-gray-500">
                     <span className="sr-only">Search</span>
-                    <MagnifyingGlassIcon className="h-6 w-6" aria-hidden="true"  onClick={() => navigate('filterPage')}  style={{color:Colors.main}} />
+                    <MagnifyingGlassIcon
+                      className="h-6 w-6"
+                      aria-hidden="true"
+                      onClick={() => navigate("filterPage")}
+                      style={{ color: Colors.main }}
+                    />
                   </a>
+                </div>
+                <div className="flex lg:ml-6">
+                  <Dropdown
+                    menu={{
+                      items,
+                    }}
+                    placement="bottom"
+                    arrow={{
+                      pointAtCenter: true,
+                    }}
+                    trigger={"click"}
+                  >
+                    <a
+                      href="#"
+                      className="p-2 text-gray-400 hover:text-gray-500"
+                    >
+                      <span className="sr-only">Search</span>
+                      <UserCircleIcon
+                        className="h-6 w-6"
+                        aria-hidden="true"
+                        // onClick={() => navigate("filterPage")}
+                        style={{ color: Colors.main }}
+                      />
+                    </a>
+                  </Dropdown>
                 </div>
 
                 {/* Cart */}
                 <div className="ml-4 flow-root lg:ml-6">
                   <a href="#" className="group -m-2 flex items-center p-2">
-                  
-
-                    {/* <ShoppingBagIcon
-                      className="h-6 w-6 flex-shrink-0 text-gray-400 group-hover:text-gray-500" style={{color:Colors.main}}
+                    <ShoppingBagIcon
+                      className="h-6 w-6 flex-shrink-0 text-gray-400 group-hover:text-gray-500"
+                      style={{ color: Colors.main }}
                       aria-hidden="true"
                     />
-                    <span className="ml-2 text-sm font-medium text-gray-700 group-hover:text-gray-800">0</span>
-                    <span className="sr-only">items in cart, view bag</span> */}
+                    <span className="ml-2 text-sm font-medium text-gray-700 group-hover:text-gray-800">
+                      0
+                    </span>
+                    <span className="sr-only">items in cart, view bag</span>
                   </a>
-                  
-                    
-                    <button  onClick={() => navigate('auth')} className='p-2 text-sm sm:text-sm md:text-lg lg:text-xl lg:px-2 lg:p-2 bg-[#4F46E5] text-white rounded-lg'>SignUp</button>
-                   
+
+                  {/* <button  onClick={() => setIsModalOpen(!isModalOpen)} className='p-2 text-sm sm:text-sm md:text-lg lg:text-xl lg:px-2 lg:p-2 bg-[#4F46E5] text-white rounded-lg'>SignUp</button> */}
                 </div>
               </div>
             </div>
           </div>
         </nav>
+        <Auth trigger={isModalOpen} cancelOn={handleCancel} />
       </header>
     </div>
-  )
+  );
 }
