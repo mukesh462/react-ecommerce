@@ -23,7 +23,7 @@ function AppMenu() {
           <LiaBoxSolid  className="mx-3 " size={'28px'} />
           My Orders
         </div></ListGroup.Item >
-      <ListGroup.Item className='cursor-pointer'> <div className={`flex items-center rounded-md justify-start  ${location.pathname =='/address' ? 'bg-indigo-600 text-white' : null} text-lg font-medium py-2 hover:text-white  text-indigo-600 hover:bg-indigo-500`}>
+      <ListGroup.Item className='cursor-pointer' > <div onClick={()=> navigate('/address')} className={`flex items-center rounded-md justify-start  ${location.pathname =='/address' ? 'bg-indigo-600 text-white' : null} text-lg font-medium py-2 hover:text-white  text-indigo-600 hover:bg-indigo-500`}>
           <SlLocationPin className="mx-3 " size={'28px'} />
           Address
         </div></ListGroup.Item>

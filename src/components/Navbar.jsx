@@ -59,7 +59,7 @@ export default function Navbar() {
     {
       key: "3",
       label: (
-        <div className="flex items-center w-40 justify-start hover:text-white text-base text-indigo-500 p-1 rounded-sm hover:bg-indigo-400">
+        <div onClick={()=> navigate('address')} className="flex items-center w-40 justify-start hover:text-white text-base text-indigo-500 p-1 rounded-sm hover:bg-indigo-400">
           <SlLocationPin className="mr-2 " />
           Address
         </div>
@@ -80,21 +80,25 @@ export default function Navbar() {
       text: "My Profile",
       select: 1,
       icon: <RxPerson className="mr-2  " size={"24px"} />,
+      click:()=>navigate('myProfile')
     },
     {
       text: "My Orders",
       select: 2,
       icon: <LiaBoxSolid className="mr-2  " size={"28px"} />,
+      click:()=>navigate('myOrders')
     },
     {
       text: "Address",
       select: 3,
       icon: <SlLocationPin className="mr-2  " size={"28px"} />,
+      click:()=>navigate('address')
     },
     {
       text: "Log Out",
       select: 4,
       icon: <TbLogout2 className="mr-2  " size={"28px"} />,
+      click:()=>console.log('dedwed')
     },
   ];
   return (
@@ -153,7 +157,8 @@ export default function Navbar() {
                   {sideBar.map((page) => (
                     <div
                       key={page.select}
-                      className="flow-root cursor-pointer hover:bg-indigo-500 hover:text-white px-3 rounded-lg p-1 text-indigo-400"
+                      onClick={page.click}
+                      className="flow-root cursor-pointer hover:bg-indigo-500 hover:text-white px-3 py-2 p-1 text-indigo-400"
                     >
                       <div className="-m-2 items-center py-2 font-medium  flex ">
                         {page.icon}
@@ -249,7 +254,7 @@ export default function Navbar() {
                     />
                   </a>
                 </div>
-                <div className="flex lg:ml-6">
+                {/* <div className="flex lg:ml-6">
                   <Dropdown
                     menu={{
                       items,
@@ -273,11 +278,11 @@ export default function Navbar() {
                       />
                     </a>
                   </Dropdown>
-                </div>
+                </div> */}
 
                 {/* Cart */}
                 <div className="ml-4 flow-root lg:ml-6">
-                  <a href="#" className="group -m-2 flex items-center p-2">
+                  {/* <a href="#" className="group -m-2 flex items-center p-2">
                     <ShoppingBagIcon
                       className="h-6 w-6 flex-shrink-0 text-gray-400 group-hover:text-gray-500"
                       style={{ color: Colors.main }}
@@ -287,9 +292,9 @@ export default function Navbar() {
                       0
                     </span>
                     <span className="sr-only">items in cart, view bag</span>
-                  </a>
+                  </a> */}
 
-                  {/* <button  onClick={() => setIsModalOpen(!isModalOpen)} className='p-2 text-sm sm:text-sm md:text-lg lg:text-xl lg:px-2 lg:p-2 bg-[#4F46E5] text-white rounded-lg'>SignUp</button> */}
+                  <button  onClick={() => setIsModalOpen(!isModalOpen)} className='p-2 text-sm sm:text-sm md:text-lg lg:text-xl lg:px-2 lg:p-2 bg-[#4F46E5] text-white rounded-lg'>SignUp</button>
                 </div>
               </div>
             </div>

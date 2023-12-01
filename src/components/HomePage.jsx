@@ -36,28 +36,32 @@ const navigate = useNavigate();
       {/* category Sectio */}
       <CategorySection />
       <div
-        className="text-center p-3"
+        className="text-center p-3 "
         style={{ background: Colors.main, color: Colors.text }}
       >
         <h2 className="font-bold tracking-wider">Our Best Seller</h2>
         <span>New  Lanch Product have Exciting Offer  </span>
       </div>
-      <Container>
-      
-      <Row className="flex justify-center  items-center my-4">
-        {dataa.map((d) => {
+      <Container className="mt-5 ">
+      <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-4 gap-y-5 ">
+      {dataa.map((d) => {
           return (
-            <Col className="flex justify-center items-center" xs={6} sm={6} md={4} lg={3} onClick={()=> navigate('view')}>
-              <ProductCard />
-            </Col>
+            <div className="" onClick={()=> navigate('/view')}>
+              <ProductCard cardName="w-[90%] " />
+            </div>
           );
         })}
-      </Row>
+
+      </div>
+      {/* <Row className="flex justify-center  items-center my-4">
+        .
+       
+      </Row> */}
   
       </Container>
     <Image  className="w-full my-5" src="https://kidsstalk.in/storage/uploads/ThemePage/xOy6xZYDQbdbmytyKpiQB3kzwm5klILlEXn1QGYf.webp"/>
     {/* slide */}
-    <ProductSlide/>
+    <ProductSlide title={'Recommended For You'}/>
         <Image  className="w-full my-5" src="https://kidsstalk.in/storage/uploads/ThemePage/yy8Wibq8F2aE8fxRh59E22s3AHZovLs2wQe4ILTH.webp"/>
 
     </div>

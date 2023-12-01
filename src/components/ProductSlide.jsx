@@ -11,7 +11,7 @@ import "swiper/swiper-bundle.css";
 import { Navigation, Pagination } from "swiper/modules";
 import "../App.css";
 
-function ProductSlide() {
+function ProductSlide({title}) {
   const data = [1, 1, 2, 25, 2, 5, 5, 5, , 5, 5, 5, 5, 5, 5, 5, 5];
   const breakpoints = {
     320: {
@@ -33,9 +33,9 @@ function ProductSlide() {
   };
   return (
     <>
-      <div className=" text-white flex justify-between items-center bg-indigo-500 py-3 my-3">
-        <h1 className="text-xl font-bold tracking-wider ">
-          Recommended deals for you
+      <div className=" text-white flex justify-between items-center bg-indigo-600 py-3 my-3">
+        <h1 className="lg:md:text-xl md:text-xl font-bold tracking-wider pl-5">
+         {title}
         </h1>
         <div className="flex">
           <ArrowLeftCircleIcon
@@ -59,7 +59,7 @@ function ProductSlide() {
           {data.map(() => {
             return (
               <SwiperSlide>
-                <ProductCard />
+                <ProductCard cardName="w-full" />
               </SwiperSlide>
             );
           })}

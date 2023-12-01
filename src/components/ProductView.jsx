@@ -15,6 +15,10 @@ import { data } from "autoprefixer";
 import TextRender from "./TextRender";
 import ProductSlide from "./ProductSlide";
 import ProductCard from "./ProductCard";
+import {
+  TbSquareRoundedArrowLeft,
+  TbSquareRoundedArrowRight,
+} from "react-icons/tb";
 
 const Listimage = ({ size }) => {
   return (
@@ -25,10 +29,10 @@ const Listimage = ({ size }) => {
   );
 };
 function ProductView() {
-    useEffect(() => {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-    }, [])
-    
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, []);
+
   const items = [
     {
       key: "1",
@@ -57,8 +61,8 @@ function ProductView() {
       slidesPerView: 3,
       spaceBetween: 15,
     },
-    865:{
-        slidesPerView: 4,
+    865: {
+      slidesPerView: 4,
       spaceBetween: 2,
     },
     1024: {
@@ -93,7 +97,7 @@ function ProductView() {
             <div className="top flex justify-center">
               <Image.PreviewGroup
                 items={[
-                    "https://kidsstalk.in/storage/uploads/product/KTS33209_3.webp",
+                  "https://kidsstalk.in/storage/uploads/product/KTS33209_3.webp",
                   "https://kidsstalk.in/storage/uploads/product/KTS33209.webp",
                   "https://kidsstalk.in/storage/uploads/product/KTS33209.webp",
                 ]}
@@ -149,7 +153,6 @@ function ProductView() {
               <div className="flex">
                 <p className="text-2xl font-bold">₹ 5451</p>
                 <span className="line-through ml-3 mt-2">₹ 454</span>
-               
               </div>
               <span>Exclude All tax</span>
             </div>
@@ -198,38 +201,9 @@ function ProductView() {
           </div>
         </div>
         {/* relasted */}
-
-        <div className="my-5">
-          <p className="text-2xl font-bold bg-[#4F46E5] text-white py-3 pl-5">
-            Releated Products
-          </p>
-          <Container className="relative ">
-          <ArrowRightCircleIcon className="h-10 cursor-pointer rightRow  absolute z-10 text-[#4F46E5] bg-white rounded right-0 top-52 " />
-
-            <Swiper
-              navigation={{ nextEl: ".rightRow", prevEl: ".movePre" }}
-              breakpoints={Rbreakpoints}
-              modules={[Navigation]}
-              onSlideChange={() => console.log("slide change")}
-              onSwiper={(swiper) => console.log(swiper)}
-              className="my-3 flex justify-center"
-            >
-                <Row className="flex justify-center items-center">
-                    {[1, 2, 3, 5, 3, 8, 25].map(() => {
-                return (
-                  <SwiperSlide>
-                    <ProductCard  />
-                  </SwiperSlide>
-                );
-              })}
-                </Row>
-              
-            </Swiper>
-          <ArrowLeftCircleIcon className="h-10 cursor-pointer movePre absolute z-10 text-[#4F46E5] bg-white rounded left-0 top-52  " />
-
-          </Container>
-        </div>
       </Container>
+
+      <ProductSlide title={'Related Products '}/>
     </div>
   );
 }

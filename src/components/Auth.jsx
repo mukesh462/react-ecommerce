@@ -50,7 +50,7 @@ const Auth = ({ trigger, cancelOn }) => {
                         type="email"
                         autoComplete="email"
                         required
-                        className="block w-full rounded-md p-2 border-indigo-500 border-2 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset placeholder:text-gray-400 focus:ring-2 focus:border-indigo-500  focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                        className="block w-full focus:outline-indigo-600  rounded-md p-2 border-indigo-500 border-2 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset placeholder:text-gray-400 focus:ring-2 focus:border-indigo-500  focus:ring-indigo-600 sm:text-sm sm:leading-6"
                       />
                     </div>
                   </div>
@@ -74,9 +74,10 @@ const Auth = ({ trigger, cancelOn }) => {
                         id="password"
                         name="password"
                         type="password"
+                        placeholder="Enter Password"
                         autoComplete="current-password"
                         required
-                        className="block w-full rounded-md p-2 border-indigo-500 border-2 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset placeholder:text-gray-400 focus:ring-2 focus:border-indigo-500  focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                        className="block focus:outline-indigo-600 w-full rounded-md p-2 border-indigo-500 border-2 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset placeholder:text-gray-400 focus:ring-2 focus:border-indigo-500  focus:ring-indigo-600 sm:text-sm sm:leading-6"
                       />
                     </div>
                   </div>
@@ -140,7 +141,7 @@ const Auth = ({ trigger, cancelOn }) => {
                         autoComplete="name"
                         required
                         placeholder="Enter Your Name"
-                        className="block w-full rounded-md p-2 border-indigo-500 border-2 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset placeholder:text-gray-400 focus:ring-2 focus:border-indigo-500  focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                        className="block w-full focus:outline-indigo-600 rounded-md p-2 border-indigo-500 border-2 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset placeholder:text-gray-400 focus:ring-2 focus:border-indigo-500  focus:ring-indigo-600 sm:text-sm sm:leading-6"
                       />
                     </div>
                   </div>
@@ -159,7 +160,7 @@ const Auth = ({ trigger, cancelOn }) => {
                         placeholder="Enter Your Email"
                         autoComplete="email"
                         required
-                        className="block w-full rounded-md p-2 border-indigo-500 border-2 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset placeholder:text-gray-400 focus:ring-2 focus:border-indigo-500  focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                        className="block w-full focus:outline-indigo-600 rounded-md p-2 border-indigo-500 border-2 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset placeholder:text-gray-400 focus:ring-2 focus:border-indigo-500  focus:ring-indigo-600 sm:text-sm sm:leading-6"
                       />
                     </div>
                   </div>
@@ -185,7 +186,7 @@ const Auth = ({ trigger, cancelOn }) => {
                         type="password"
                         autoComplete="current-password"
                         required
-                        className="block w-full rounded-md p-2 border-indigo-500 border-2 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset placeholder:text-gray-400 focus:ring-2 focus:border-indigo-500  focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                        className="block w-full focus:outline-indigo-600 rounded-md p-2 border-indigo-500 border-2 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset placeholder:text-gray-400 focus:ring-2 focus:border-indigo-500  focus:ring-indigo-600 sm:text-sm sm:leading-6"
                       />
                     </div>
                   </div>

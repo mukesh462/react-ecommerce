@@ -6,20 +6,23 @@ import { StarIcon } from '@heroicons/react/24/solid'
 
 
 const { Meta } = Card;
-function ProductCard() {
+function ProductCard({cardName='sm:w-52 max-md:w-40 max-lg:w-60',click}) {
+  console.log(cardName)
   return (
     <div>
        <Card
-    //    loading
-    bodyStyle={{padding: "5px"}}
-    className=' p-0 m-2 sm:w-52 max-md:w-40 max-lg:w-60 shadow-sm'
+      //  loading
+    style={{borderRadius:0}}
+      onClick={click}
+    bodyStyle={{padding: "3px"}}
+    className={` p-0 m-2 rounded-none shadow-sm ${cardName} my-custom-card`}
   
     cover={<img alt="example" src="https://source.unsplash.com/random/200x200?sig=1" />}
   >
     {/* <TextRender maxLength={34}  text={'lerdsfghfhjgfsdgfsdjgfhjdgfhjgfhjsdgfjsdgfhjgfhjgfhjgfjhf'} /> */}
     {/* <ShoppingCartIcon className='absolute top-0 left' /> */}
-    <Meta title="Europe Street beatwetewtwetwetwetwetwetwetwetwet"  />
-    <div className="flex justify-between py-2">
+    <Meta className='px-2' title="Europe Street beatwetewtwetwetwetwetwetwetwetwet"  />
+    <div className="flex px-2 justify-between py-2 ">
         <p className="">$25421</p>
      <span className='flex'><StarIcon className='h-5 text-yellow-400'/>4</span>
     </div>

@@ -46,9 +46,14 @@
   }
   
   .radio-custom .ant-radio-wrapper-checked {
-    border: 2px solid blue;
+    border: 1px solid blue;
     border-radius: 8px;
     padding: 8px;
+    background: rgb(79 70 229);
+    color: #fff;
+  }
+  .radio-custom .ant-radio-wrapper-checked span{
+    color: #fff;
   }
   
   .radio-custom .ant-radio {
@@ -75,4 +80,12 @@
       -ms-overflow-style: none; /* IE and Edge */
       scrollbar-width: none; /* Firefox */
     }
+}
+
+/* styles.css */
+
+/* styles.css */
+
+.my-custom-card.ant-card {
+  border-radius: 0 !important;
 }

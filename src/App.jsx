@@ -21,6 +21,7 @@ import CheckOut from "./components/CheckOut";
 import AppMenu from "./components/AppMenu";
 import MyProfile from "./components/MyProfile";
 import Orders from "./components/Orders";
+import Address from "./components/Address";
 
 const Root = () => {
   const location = useLocation();
@@ -28,34 +29,31 @@ const Root = () => {
 
   return (
     <div className="app-main">
-     <Navbar />
-     <div className="content">
-
-
-        <Routes >
-        <Route exact path="/" element={<HomePage />} />
-        <Route exact path="/view" element={<ProductView />} />
-        <Route exact path="/myProfile" element={<MyProfile />} /> 
+      <Navbar />
+      <div className="content">
+        <Routes>
+          <Route exact path="/" element={<HomePage />} />
+          <Route exact path="/view" element={<ProductView />} />
+          <Route exact path="/myProfile" element={<MyProfile />} />
           <Route exact path="/filterPage" element={<FilterPage />} />
           <Route exact path="/checkout" element={<CheckOut />} />
           <Route exact path="/myOrders" element={<Orders />} />
+          <Route exact path="/address" element={<Address />} />
+        </Routes>
+      </div>
 
-
-      </Routes>
-     </div>
-    
       <Footer />
     </div>
   );
 };
 function App() {
-
   const [count, setCount] = useState(0);
 
   return (
     <>
       <BrowserRouter>
-      <Root/></BrowserRouter>
+        <Root />
+      </BrowserRouter>
       {/* <RouterProvider router={router} >
      
 

@@ -37,7 +37,7 @@ function MyProfile() {
     );
   };
   return (
-    <Container className="mt-4 min-h-[60vh] shadow-sm">
+    <Container className="mt-4 md:min-h-[60vh] lg:min-h-[80vh]  shadow-sm">
       <div className="grid  sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-4 rounded-md">
         <div className="hidden lg:block">
 
@@ -58,6 +58,8 @@ function MyProfile() {
                 </div>
               </div>
               <InputBox lable={"Full Name"} place={"Enter You Name"} />
+              <InputBox lable={"Mobile No"} place={"Enter You Mobile"} />
+
               <InputBox
                 lable={"Email"}
                 place={"Enter You Name"}
@@ -65,6 +67,7 @@ function MyProfile() {
                 read={true}
               />
               <InputBox lable={"Password"} place={"Enter You Name"} />
+
 
               <button className="px-5 bg-indigo-500 text-white rounded-md p-2 float-right my-2">Update Profile</button>
             </div>

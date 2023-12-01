@@ -138,16 +138,16 @@ function CheckOut() {
                       className="flex flex-col  radio-custom md:w-[50%] lg:w-[50%]"
                     >
                       <Radio value={1} className="font-bold my-3">
-                        COD{" "}
-                        <span className="text-xs text-gray-500 ">
+                        {/* COD{" "} */}
+                        {/* <span className="text-xs text-gray-500 matter "> */}
                           {" "}
                           Cash On Delivery
-                        </span>
+                        {/* </span> */}
                       </Radio>
                       <Radio value={2} className="font-bold">
                         Online Payment{" "}
-                        <span className="text-xs text-gray-500">
-                          Phonepr Gpay Card etc...
+                        <span className="text-[10px] ml-3 text-gray-500">
+                          Phonepe Gpay Card etc...
                         </span>
                       </Radio>
                     </Radio.Group>
