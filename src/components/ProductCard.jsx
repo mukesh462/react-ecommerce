@@ -15,7 +15,7 @@ function ProductCard({cardName='sm:w-52 max-md:w-40 max-lg:w-60',click}) {
     style={{borderRadius:0}}
       onClick={click}
     bodyStyle={{padding: "3px"}}
-    className={` p-0 m-2 rounded-none shadow-sm ${cardName} my-custom-card`}
+    className={` p-0 m-2 rounded-none shadow-sm ${cardName} `}
   
     cover={<img alt="example" src="https://source.unsplash.com/random/200x200?sig=1" />}
   >

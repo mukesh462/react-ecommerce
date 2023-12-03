@@ -6,8 +6,10 @@ import { Container } from "react-bootstrap";
 import { PiBankDuotone } from "react-icons/pi";
 import { GiShoppingCart } from "react-icons/gi";
 import { CiDeliveryTruck } from "react-icons/ci";
+import SuccessModel from "./SuccessModel";
 function CheckOut() {
   const [value, setValue] = useState(1);
+  const [success, setsuccess] = useState(false)
   const onChange = (e) => {
     console.log("radio checked", e.target.value);
     setValue(e.target.value);
@@ -94,7 +96,7 @@ function CheckOut() {
     );
   };
   return (
-    <div className="my-5">
+    <div className="my-5 relative">
       <Container>
         <div className="grid sm:grid-cols-1  md:grid-cols-2 lg:grid-cols-4 gap-4 scroll-m-0 scroll-p-0">
           <div className=" col-start-1 col-end-3 overflow-y-scroll max-h-[600px] no-scrollbar ">
@@ -169,7 +171,7 @@ function CheckOut() {
                   {/* <textarea name="" id="" cols="" className="w-full" readOnly disabled rows="5" value={''}> */}
                   {/* </textarea> */}
                 </div>
-                <div className=" ">
+                <div className=" " onClick={()=> setsuccess(!success)}>
                   <button className="bg-indigo-500 w-full md:w-[70%] lg:w-[70%] justify-center px-5 text-white font-bold  p-2 rounded-md flex items-center gap-2">
                     {" "}
                     Order Now <GiShoppingCart />
@@ -184,6 +186,8 @@ function CheckOut() {
           </div>
         </div>
       </Container>
+    <SuccessModel state={success}/>
+      
     </div>
   );
 }

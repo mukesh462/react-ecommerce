@@ -16,6 +16,7 @@ const Auth = ({ trigger, cancelOn }) => {
       <Modal
         footer={null}
         title={null}
+        centered
         open={trigger}
         // onOk={handleOk}
         onCancel={cancelOn}

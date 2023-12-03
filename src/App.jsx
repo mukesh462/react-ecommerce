@@ -22,6 +22,9 @@ import AppMenu from "./components/AppMenu";
 import MyProfile from "./components/MyProfile";
 import Orders from "./components/Orders";
 import Address from "./components/Address";
+import OrderView from "./components/OrderView";
+import SuccessModel from "./components/SuccessModel";
+import Loader from "./components/Loader";
 
 const Root = () => {
   const location = useLocation();
@@ -39,6 +42,10 @@ const Root = () => {
           <Route exact path="/checkout" element={<CheckOut />} />
           <Route exact path="/myOrders" element={<Orders />} />
           <Route exact path="/address" element={<Address />} />
+          <Route exact path="/orderView" element={<OrderView />} />
+          <Route exact path="/s" element={<Loader />} />
+
+
         </Routes>
       </div>
 

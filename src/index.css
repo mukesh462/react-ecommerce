@@ -80,7 +80,14 @@
       -ms-overflow-style: none; /* IE and Edge */
       scrollbar-width: none; /* Firefox */
     }
+   
 }
+@layer components {
+  .text-responsive{
+    @apply text-xs md:text-base lg:text-base;
+  }
+}
+
 
 /* styles.css */
 
@@ -88,4 +95,28 @@
 
 .my-custom-card.ant-card {
   border-radius: 0 !important;
+}
+.MuiStepLabel-label.Mui-completed, .MuiStepLabel-root .Mui-completed{
+  color: rgb(79 70 229) !important;
+  font-size: 35px;
+}
+.css-1u4zpwo-MuiSvgIcon-root-MuiStepIcon-root.Mui-active{
+  color: green !important;
+  font-size: 35px;
+
+}
+.css-1hv8oq8-MuiStepLabel-label.MuiStepLabel-alternativeLabel{
+  font-size: small;
+}
+.ant-radio-checked .ant-radio-inner{
+  border-color: rgb(79 70 229) !important ;
+  background: #fff !important;
+}
+
+.ant-radio-checked .ant-radio-inner:after{
+  background-color: rgb(79 70 229);
+}
+
+.ant-radio:hover .ant-radio-inner {
+  border-color: rgb(79 70 229) ;
 }

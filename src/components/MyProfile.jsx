@@ -49,9 +49,10 @@ function MyProfile() {
               <div className="profile relative flex justify-center">
                 <Avatar
                   size={130}
-                  src={
-                    "https://m.media-amazon.com/images/M/MV5BMTIzZGVhY2ItNzBjNy00ZTQ5LWE4NTYtYzM1ZGU3MzRhNzExXkEyXkFqcGdeQXVyNDUzOTQ5MjY@._V1_FMjpg_UX1000_.jpg"
-                  }
+                  // src={
+                  //   "https://m.media-amazon.com/images/M/MV5BMTIzZGVhY2ItNzBjNy00ZTQ5LWE4NTYtYzM1ZGU3MzRhNzExXkEyXkFqcGdeQXVyNDUzOTQ5MjY@._V1_FMjpg_UX1000_.jpg"
+                  // }
+                  src={'https://media.istockphoto.com/id/1300845620/vector/user-icon-flat-isolated-on-white-background-user-symbol-vector-illustration.jpg?s=612x612&w=0&k=20&c=yBeyba0hUkh14_jgv1OKqIH0CCSWU_4ckRkAoy2p73o='}
                 />
                 <div className="bg-indigo-500 p-1 w-min rounded-full absolute right-48 bottom-2 cursor-pointer">
                   <CiCamera className="" size={"28px"} color="#fff" />
